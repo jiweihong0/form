@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import {useNavigate} from "react-router-dom";
+
 
 function Page2() {
   
-
+  const history = useNavigate();
   const json= [
     {
       "question": "頭前傾可能導致什麼問題？",
@@ -151,7 +153,7 @@ function Page2() {
 
     // 顯示結果
     alert(`答對 ${correctAnswers} 題`);
-    confirm(`重新測驗或回到前測？`)? window.location.href ='/':window.location.reload() ;
+    confirm(`重新測驗或回到前測？`)? history('/'):window.location.reload() ;
   }
 
   return (

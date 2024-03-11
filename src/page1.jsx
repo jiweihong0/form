@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Page1() {
-  
+  let history = useNavigate();
+
   const json = [
     {
       "question": "活動性駝背可能引起哪些身體不適症狀？",
@@ -154,7 +156,7 @@ function Page1() {
 
     // 顯示結果
     alert(`答對 ${correctAnswers} 題`);
-    confirm(`前往後側?`) ? window.location.href = "/page2": window.location.reload() ;
+    confirm(`前往後側?`) ? history('/page2'): window.location.reload() ;
   }
 
   return (
