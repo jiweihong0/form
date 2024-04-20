@@ -7,12 +7,12 @@ export default function Header() {
     const style = `text-lg font-bold mx-4 hover:text-[#97932D] text-[#423838]`
     const activeStyle = `text-lg font-bold mx-4  text-[#97932D] `
     return (
-        <div className=' top-0 bg-[#EFF0EA] w-screen h-16 flex justify-between items-center px-4'>
+        <div className=' top-0 bg-[#EFF0EA] w-screen h-16 flex justify-between items-center px-4  '>
             <div className='  inline-flex justify-center items-center '>
                 <img src={Logo} alt='logo' className='w-16 h-16'/>
                 <div className='text-xl font-bold'>P.S.姿態整復分析</div>
             </div>
-            <div className='flex '>
+            <div className='hidden md:block   '>
                 <Link to='/' className={location.pathname === '/' ? activeStyle : style}>首頁</Link>
                 <Link to='/video' className={location.pathname === '/video' ? activeStyle : style}>
                     教案影片</Link>

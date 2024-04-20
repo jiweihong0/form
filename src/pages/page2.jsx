@@ -157,13 +157,13 @@ function Page2() {
   }
 
   return (
-    <div style={{padding:"20px",margin:"5px",borderRadius:"10px",backgroundColor:"#00ff00",display:"flex", flexDirection:"column",width:"90%",minWidth:"500px"}}>
-      <h1 style={{marginLeft:"30%"}}>測驗題目</h1>
+    <div className='w-screen h-full bg-cover bg-center flex flex-col max-w-8xl justify-center items-center overflow-scroll gap-5 bg-[#1E1E1E] '>
+    <h1 className='text-4xl font-bold text-[#B3AE39]'>前測問卷</h1>
       {/* change to second test */}
       
       {/* line */}
       <hr style={{width:"80%",marginLeft:"10%"}} />
-      <form onSubmit={handleSubmit} style={{padding:"0 10%"}}>
+      <form onSubmit={handleSubmit} className='flex flex-col items-start gap-5 text-white' >
         {json.map((item, index) => (
           <div key={index} style={{display:"flex",flexDirection:"column",marginLeft:"20px"}}>
             <p>{item.question}</p>
