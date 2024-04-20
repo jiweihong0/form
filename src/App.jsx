@@ -1,7 +1,7 @@
 // react router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Page1 from "./page1";
-import Page2 from "./page2";
+import Page1 from "./pages/page1";
+import Page2 from "./pages/page2";
 
 function App() {
   return (

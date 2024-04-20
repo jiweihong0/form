@@ -156,14 +156,14 @@ function Page1() {
 
     // 顯示結果
     alert(`答對 ${correctAnswers} 題`);
-    confirm(`前往後側?`) ? history('/page2'): window.location.reload() ;
+    confirm(`前往後側?`) ? history('/page2'): history('/page1');
   }
 
   return (
     <div style={{padding:"20px",margin:"5px",borderRadius:"10px",backgroundColor:"#dcfce5",display:"flex", flexDirection:"column",width:"90%",minWidth:"500px"}}>
       <h1 style={{marginLeft:"30%"}}>測驗題目</h1>
       {/* change to second test */}
-      
+   
       {/* line */}
       <hr style={{width:"80%",marginLeft:"10%"}} />
       <form onSubmit={handleSubmit} style={{padding:"0 10%"}}>
