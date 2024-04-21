@@ -6,7 +6,7 @@ import Teach from "./pages/teach";
 import Video from "./pages/video";
 import Main from "./pages/main";
 
-import Layout from "./compoent/Layout";
+import Layout from "./components/Layout";
 
 function App() {
   return (
