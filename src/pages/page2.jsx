@@ -158,7 +158,7 @@ function Page2() {
 
   return (
     <div className='w-screen h-full bg-cover bg-center flex flex-col max-w-8xl justify-center items-center overflow-scroll gap-5 bg-[#1E1E1E] '>
-    <h1 className='text-4xl font-bold text-[#B3AE39]'>前測問卷</h1>
+    <h1 className='text-4xl font-bold text-[#B3AE39]'>後測問卷</h1>
       {/* change to second test */}
       
       {/* line */}
