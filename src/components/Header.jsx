@@ -19,7 +19,7 @@ export default function Header() {
         <div className=' top-0 bg-[#EFF0EA] w-screen h-16 flex justify-between items-center px-4  '>
             <div className='inline-flex items-center justify-center '>
                 <img src={Logo} alt='logo' className='w-16 h-16'/>
-                <div className='text-xl font-bold'>P.S.姿態整復分析</div>
+                <div className='text-xl font-bold'>P.S.姿態偵測分析</div>
             </div>
             <DropdownMenu className='invisible md:visible' >
                 <DropdownMenuTrigger>
