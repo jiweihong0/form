@@ -19,7 +19,7 @@ export default function Header() {
         <div className=' top-0 bg-[#EFF0EA] w-screen h-16 flex justify-between items-center px-4  '>
             <div className='inline-flex items-center justify-center '>
                 <img src={Logo} alt='logo' className='w-16 h-16'/>
-                <div className='text-xl font-bold'>P.S.姿態偵測分析</div>
+                <div className='text-xl font-bold'>P.S.姿態「偵測」分析</div>
             </div>
             <DropdownMenu className='invisible md:visible' >
                 <DropdownMenuTrigger>
@@ -37,10 +37,10 @@ export default function Header() {
                         <Link to='/video' className='text-lg font-bold mx-4 hover:text-[#97932D] text-[#423838]'>教案影片</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <Link to='/page1' className='text-lg font-bold mx-4 hover:text-[#97932D] text-[#423838]'>前測問卷</Link>
+                        <Link to='/page1' className='text-lg font-bold mx-4 hover:text-[#97932D] text-[#423838]'>前測</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <Link to='/page2' className='text-lg font-bold mx-4 hover:text-[#97932D] text-[#423838]'>後測問卷</Link>
+                        <Link to='/page2' className='text-lg font-bold mx-4 hover:text-[#97932D] text-[#423838]'>後測</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                         <Link to='/teach' className='text-lg font-bold mx-4 hover:text-[#97932D] text-[#423838]'>APP操作教學</Link>
@@ -53,9 +53,9 @@ export default function Header() {
                 <Link to='/video' className={location.pathname === '/video' ? activeStyle : style}>
                     教案影片</Link>
                 <Link to='/page1' className={location.pathname === '/page1' ? activeStyle : style}>
-                    前測問卷</Link>
+                    前測</Link>
                 <Link to='/page2' className={location.pathname === '/page2' ? activeStyle : style}>
-                    後測問卷</Link>
+                    後測</Link>
                 <Link to='/teach' className={location.pathname === '/teach' ? activeStyle : style}>
                     APP操作教學</Link>
             </div>          

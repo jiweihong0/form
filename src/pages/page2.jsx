@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import {useNavigate} from "react-router-dom";
+import bg from '../assets/background.png';
+import bg2 from '../assets/background2.png';
 
 
 function Page2() {
@@ -157,40 +159,49 @@ function Page2() {
   }
 
   return (
-    <div className='w-screen h-full bg-cover bg-center flex flex-col max-w-8xl justify-center items-center overflow-scroll gap-5 bg-[#1E1E1E] '>
-    <h1 className='text-4xl font-bold text-[#B3AE39]'>後測問卷</h1>
+    <div className='flex flex-col items-center justify-center w-screen h-full gap-5 overflow-scroll bg-center bg-cover max-w-8xl '
+    style={{
+        backgroundImage: `url(${bg}), url(${bg2})`,
+        backgroundSize: '100% 50%, 100% 50%',
+        backgroundRepeat: 'no-repeat, no-repeat',
+        backgroundPosition: 'top, bottom'
+    }}>
+    <h1 className='text-4xl font-bold text-[#715E42] my-10'>後測問卷</h1>
       {/* change to second test */}
       
       {/* line */}
-      <hr style={{width:"80%",marginLeft:"10%"}} />
-      <form onSubmit={handleSubmit} className='flex flex-col items-start gap-5 text-white' >
+      {/* <hr style={{width:"80%",marginLeft:"10%"}} /> */}
+      <form onSubmit={handleSubmit} className='flex flex-col items-center gap-5 text-white' >
         {json.map((item, index) => (
-          <div key={index} style={{display:"flex",flexDirection:"column",marginLeft:"20px"}}>
-            <p>{item.question}</p>
-            <div>
+          <div key={index} style={{display:"flex",flexDirection:"row",marginLeft:"20px",backgroundColor:"#FFFFFF",padding:"15px",borderRadius:"10px" ,width:"100%", boxShadow:"0 4px 6px 0 rgba(0, 0, 0, 0.1)"}}>
+            <p className='mr-10 text-3xl font-bold text-amber-950 '>{index+1}</p>
+            <div >
+            <p className='mb-2 text-xl text-black'>{item.question}</p>
+            <div >
               <input type="radio" name={index} value="1" onChange={(event) => handleAnswerChange(event, index)} />
-              <label>{item.option[0]}</label>
-              </div>
-              <div>
+              <label className='ml-2 text-black '>{item.option[0]}</label>
+            </div>
+            <div>
               <input type="radio" name={index} value="2" onChange={(event) => handleAnswerChange(event, index)} />
-              <label>{item.option[1]}</label>
-              </div>
+              <label  className='ml-2 text-black'>{item.option[1]}</label>
+            </div>
               <div>
               <input type="radio" name={index} value="3" onChange={(event) => handleAnswerChange(event, index)} />
-              <label>{item.option[2]}</label>
+              <label className='ml-2 text-black'>{item.option[2]}</label>
               </div>
               <div>
               <input type="radio" name={index} value="4" onChange={(event) => handleAnswerChange(event, index)} />
-              <label>{item.option[3]}</label>
+              <label className='ml-2 text-black'>{item.option[3]}</label>
             </div>
           </div>
+        </div>
         ))}
+        <input type="submit" value="提交" className='px-5 py-2 text-xl font-bold text-black rounded-lg cursor-pointer hover:bg-amber-850 bg-[#FFF8F8] shadow-xl' />
         <br />
-        <input type="submit" value="提交" style={{marginLeft:"50%"}} />
       </form>
   
-    </div>
-  );
+  </div>
+);
 }
 
 export default Page2;
