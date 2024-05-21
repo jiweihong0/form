@@ -220,7 +220,7 @@ function Page1() {
         <br />
       </form>
 
-      <div className='inline-flex justify-end w-full my-10 mr-10 '> <button className='p-2 text-2xl bg-white shadow-2xl rounded-xl '>前往教學影片{"->"}</button></div>
+      <div className='inline-flex justify-end w-full my-10 mr-10 '> <button className='p-2 text-2xl bg-white shadow-2xl rounded-xl ' onClick={()=>{ history("/video")}}>前往教學影片{"->"}</button></div>
   
   </div>
   );

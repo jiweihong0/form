@@ -111,6 +111,7 @@ function Page2() {
   ]
   
   const [answers, setAnswers] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
   
   function handleAnswerChange(event, index) {
   
@@ -132,6 +133,18 @@ function Page2() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+     // 計算正確答案數並更新選擇狀態
+     let correctAnswerss = 0;
+     const newSelectedOptions = [];
+     for (let i = 0; i < json.length; i++) {
+       const isCorrect = answers[i] === json[i].answer;
+       newSelectedOptions.push({ selected: answers[i], isCorrect });
+       if (isCorrect) {
+         correctAnswerss++;
+       }
+     }
+     setSelectedOptions(newSelectedOptions);
     // 檢查answer是否都已填寫
     if (answers.length < json.length) {
       alert('請回答所有題目');
@@ -155,7 +168,7 @@ function Page2() {
 
     // 顯示結果
     alert(`答對 ${correctAnswers} 題`);
-    confirm(`重新測驗或回到前測？`)? history('/'):window.location.reload() ;
+    // confirm(`重新測驗或回到前測？`)? history('/'):window.location.reload() ;
   }
 
   return (
@@ -177,22 +190,23 @@ function Page2() {
             <p className='mr-10 text-3xl font-bold text-amber-950 '>{index+1}</p>
             <div >
             <p className='mb-2 text-xl text-black'>{item.question}</p>
-            <div >
-              <input type="radio" name={index} value="1" onChange={(event) => handleAnswerChange(event, index)} />
-              <label className='ml-2 text-black '>{item.option[0]}</label>
-            </div>
-            <div>
-              <input type="radio" name={index} value="2" onChange={(event) => handleAnswerChange(event, index)} />
-              <label  className='ml-2 text-black'>{item.option[1]}</label>
-            </div>
-              <div>
-              <input type="radio" name={index} value="3" onChange={(event) => handleAnswerChange(event, index)} />
-              <label className='ml-2 text-black'>{item.option[2]}</label>
-              </div>
-              <div>
-              <input type="radio" name={index} value="4" onChange={(event) => handleAnswerChange(event, index)} />
-              <label className='ml-2 text-black'>{item.option[3]}</label>
-            </div>
+            {item.option.map((option, optionIndex) => {
+              const isSelected = selectedOptions[index]?.selected === optionIndex + 1;
+              const isCorrect = selectedOptions[index]?.isCorrect;
+              const backgroundColor = isSelected ? (isCorrect ? 'lightgreen' : 'lightcoral') : 'transparent';
+              const text = isSelected ? (isCorrect ? '正確' : '錯誤') : '';
+              return (<>
+                <div key={optionIndex} style={{ backgroundColor }} className='flex flex-row p-2 rounded-2xl'>
+
+                 <input type="radio" name={index} value={optionIndex + 1} onChange={(event) => handleAnswerChange(event, index)} />
+                  <label className='ml-2 text-black'>{option} </label> 
+                   
+                 <span className='ml-5 font-bold text-black'>{text}</span>
+                 
+                </div>
+              </>
+              );
+            })}
           </div>
         </div>
         ))}
