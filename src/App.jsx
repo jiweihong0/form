@@ -18,6 +18,7 @@ function App() {
               <Route path="/teach" element={<Teach />} />
               <Route path="/page1" element={<Page1 />} />
               <Route path="/page2" element={<Page2 />} />
+              <Route path="*" element={<h1>404 Not Found</h1>} />
 
           </Routes>
         </Layout>
